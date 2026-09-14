@@ -1,0 +1,14 @@
+{
+  // CS 3113 forbids generative AI for coursework (syllabus, Academic Integrity > Generative AI).
+  // These settings switch Copilot off for THIS folder only, so signing into VS Code with a
+  // GitHub account cannot quietly start suggesting raylib code while you work on projects.
+  "github.copilot.enable": {
+    "*": false,
+    "cpp": false,
+    "c": false,
+    "makefile": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": false,
+  "github.copilot.chat.followUps": "never",
+  "editor.inlineSuggest.enabled": false
+}
