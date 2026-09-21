@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "make (build raylib project)",
+      "type": "shell",
+      "command": "make",
+      // build in the folder of the file you have open, not the workspace root
+      "options": { "cwd": "${fileDirname}" },
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": ["$gcc"],
+      "presentation": { "reveal": "silent", "clear": true }
+    },
+    {
+      "label": "make run",
+      "type": "shell",
+      "command": "make run",
+      "options": { "cwd": "${fileDirname}" },
+      "problemMatcher": ["$gcc"],
+      "presentation": { "reveal": "always", "clear": true }
+    },
+    {
+      "label": "make clean",
+      "type": "shell",
+      "command": "make clean",
+      "options": { "cwd": "${fileDirname}" },
+      "problemMatcher": []
+    }
+  ]
+}

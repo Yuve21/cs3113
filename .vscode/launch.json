@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run raylib project (F5)",
+      "type": "cppdbg",
+      "request": "launch",
+      // the Makefile always names the binary raylib_app.exe
+      "program": "${fileDirname}/raylib_app.exe",
+      "args": [],
+      "cwd": "${fileDirname}",
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:/Users/yuvra/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/gdb.exe",
+      "setupCommands": [
+        { "text": "-enable-pretty-printing", "ignoreFailures": true }
+      ],
+      "preLaunchTask": "make (build raylib project)"
+    }
+  ]
+}
