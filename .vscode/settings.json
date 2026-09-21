@@ -1,7 +1,7 @@
+// CS 3113 workspace settings.
+// Every run button in this folder builds through the Makefile, because raylib needs
+// -IC:/raylib/include and -lraylib/-lopengl32/-lgdi32/-lwinmm that plain g++ won't add.
 {
-  // CS 3113 forbids generative AI for coursework (syllabus, Academic Integrity > Generative AI).
-  // These settings switch Copilot off for THIS folder only, so signing into VS Code with a
-  // GitHub account cannot quietly start suggesting raylib code while you work on projects.
   "github.copilot.enable": {
     "*": false,
     "cpp": false,
@@ -10,5 +10,12 @@
   },
   "github.copilot.nextEditSuggestions.enabled": false,
   "github.copilot.chat.followUps": "never",
-  "editor.inlineSuggest.enabled": false
+  "editor.inlineSuggest.enabled": false,
+  "code-runner.executorMap": {
+    "cpp": "cd $dir && make run",
+    "c": "cd $dir && make run"
+  },
+  "code-runner.runInTerminal": true,
+  "code-runner.saveFileBeforeRun": true,
+  "C_Cpp.debugShortcut": false
 }
