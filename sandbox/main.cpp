@@ -7,6 +7,8 @@ enum AppStatus { TERMINATED, RUNNING };
 constexpr int SCREEN_WIDTH = 800, SCREEN_HEIGHT = 450, FPS = 60;
 
 // Global Variables
+
+// Global Variables
 AppStatus gAppStatus = RUNNING;
 
 // Function Declarations

@@ -11,11 +11,5 @@
   "github.copilot.nextEditSuggestions.enabled": false,
   "github.copilot.chat.followUps": "never",
   "editor.inlineSuggest.enabled": false,
-  "code-runner.executorMap": {
-    "cpp": "cd $dir && make run",
-    "c": "cd $dir && make run"
-  },
-  "code-runner.runInTerminal": true,
-  "code-runner.saveFileBeforeRun": true,
   "C_Cpp.debugShortcut": false
 }
