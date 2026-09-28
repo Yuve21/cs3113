@@ -11,5 +11,11 @@
   "github.copilot.nextEditSuggestions.enabled": false,
   "github.copilot.chat.followUps": "never",
   "editor.inlineSuggest.enabled": false,
-  "C_Cpp.debugShortcut": false
+  "C_Cpp.debugShortcut": false,
+  "[cpp]": {
+    "editor.formatOnSave": false
+  },
+  "[c]": {
+    "editor.formatOnSave": false
+  }
 }

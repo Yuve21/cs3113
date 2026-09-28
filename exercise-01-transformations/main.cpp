@@ -93,10 +93,15 @@ void update()
     /**
      * HEARTBEAT EFFECT
      */
+    gPulseTime  += PULSE_INCREMENT / PULSE_SPEED;
+    gScaleFactor = BASE_SIZE + MAX_AMPLITUDE * sinf(gPulseTime);
 
     /**
      * ORBIT EFFECT
      */
+    gPosition.x = ORIGIN.x + RADIUS * cosf(gOrbitLocation);
+    gPosition.y = ORIGIN.y + RADIUS * sinf(gOrbitLocation);
+    gOrbitLocation += ORBIT_SPEED;
 }
 
 void render()
