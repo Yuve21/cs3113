@@ -22,9 +22,12 @@ constexpr char ALBUM_COVER_FP[] = "assets/demon_days.png";
 AppStatus gAppStatus     = RUNNING;
 float     gScaleFactor   = SIZE,
           gAngle         = 0.0f,
-          gPulseTime     = 0.0f;
+          gPulseTime     = 0.0f,
+          gPreviousTicks = 0.0f;
 Vector2   gPosition      = ORIGIN;
 Vector2   gScale         = BASE_SIZE;
+int    gFrameCounter  = 0;
+Member gCurrentMember = MURDOC;
 
 Texture2D gAlbumTexture;
 
@@ -55,12 +58,15 @@ void update()
     /**
      * @todo Calculate delta time
      */
+    float ticks     = static_cast<float>(GetTime());
+    float deltaTime = ticks - gPreviousTicks;
+    gPreviousTicks  = ticks;
 
 
     /**
      * @todo Apply delta time to the time-dependent logic
      */
-    gPulseTime += 1.0f;
+    gPulseTime += 1.0f * deltaTime;
 
     gScale = {
         BASE_SIZE.x + MAX_AMP * cos(gPulseTime),
@@ -70,6 +76,17 @@ void update()
     /**
      * @todo Switch member every 100 frames
      */
+    gFrameCounter += 1;
+
+    if (gFrameCounter >= FRAME_LIMIT)
+    {
+        if      (gCurrentMember == MURDOC) gCurrentMember = TWO_D;
+        else if (gCurrentMember == TWO_D)  gCurrentMember = RUSSEL;
+        else if (gCurrentMember == RUSSEL) gCurrentMember = NOODLE;
+        else                               gCurrentMember = MURDOC;
+
+        gFrameCounter = 0;
+    }
 }
 
 void render()
@@ -81,14 +98,17 @@ void render()
      * @todo Design your UV coordinates (i.e. textureArea) so that only one
      * member is being rendered onto the screen.
      */
-    Rectangle textureArea = {
-        // top-left corner
-        0.0f, 0.0f,
+    float quadrantWidth  = static_cast<float>(gAlbumTexture.width)  / 2.0f,
+          quadrantHeight = static_cast<float>(gAlbumTexture.height) / 2.0f;
 
-        // bottom-right corner (of texture)
-        static_cast<float>(gAlbumTexture.width),
-        static_cast<float>(gAlbumTexture.height)
-    };
+    float cornerX = 0.0f,
+          cornerY = 0.0f;
+
+    if      (gCurrentMember == TWO_D)  cornerX = quadrantWidth;
+    else if (gCurrentMember == RUSSEL) { cornerX = quadrantWidth; cornerY = quadrantHeight; }
+    else if (gCurrentMember == NOODLE) cornerY = quadrantHeight;
+
+    Rectangle textureArea = { cornerX, cornerY, quadrantWidth, quadrantHeight };
 
     // Destination rectangle – centred on gPosition
     Rectangle destinationArea = {
