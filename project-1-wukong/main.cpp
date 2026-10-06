@@ -25,9 +25,11 @@ constexpr int SCREEN_WIDTH  = 1000,
               SCREEN_HEIGHT = 600,
               FPS           = 60;
 
-// the background alternates between these two (extra credit)
-constexpr char BG_MIST[]  = "#5C6166",   // cold mountain mist
-               BG_DUSK[]  = "#6B5F52";   // warm dusk haze
+// the background drifts between these two (extra credit).
+// kept as separate channels so we can blend them, not just swap them.
+constexpr float MIST_R =  92.0f, MIST_G = 97.0f, MIST_B = 102.0f,   // cold mountain mist
+                DUSK_R = 107.0f, DUSK_G = 95.0f, DUSK_B =  82.0f,   // warm dusk haze
+                BG_SPEED = 0.8f;
 
 constexpr char WUKONG_FP[] = "assets/game/wukong.png",
                JADE_FP[]   = "assets/game/orb_jade.png",
@@ -167,9 +169,16 @@ void render()
 {
     BeginDrawing();
 
-    // EXTRA CREDIT - the background follows a sine pattern too
-    if (sinf(gElapsed * 0.8f) > 0.0f) ClearBackground(ColorFromHex(BG_MIST));
-    else                              ClearBackground(ColorFromHex(BG_DUSK));
+    // EXTRA CREDIT - the background drifts between mist and dusk on a sine.
+    // sinf gives -1.0f to 1.0f, so this maps it to 0.0f to 1.0f.
+    float mix = (sinf(gElapsed * BG_SPEED) + 1.0f) / 2.0f;
+
+    ClearBackground(Color{
+        static_cast<unsigned char>(MIST_R + (DUSK_R - MIST_R) * mix),
+        static_cast<unsigned char>(MIST_G + (DUSK_G - MIST_G) * mix),
+        static_cast<unsigned char>(MIST_B + (DUSK_B - MIST_B) * mix),
+        static_cast<unsigned char>(255)
+    });
 
     renderObject(&gAmberTexture,  &gAmberPosition,  &gAmberScale,  gAmberAngle);
     renderObject(&gWukongTexture, &gWukongPosition, &gWukongScale, 0.0f);
