@@ -1,3 +1,6 @@
 *.exe
 *.o
 raylib_app
+
+# other courses stay out of this repo
+*.py
