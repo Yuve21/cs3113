@@ -1,0 +1,8 @@
+orb_amber.png, orb_jade.png
+  cropped from "Orbs Collection" by Lamoot / OpenGameArt
+  https://opengameart.org/content/orbs-collection
+  Licence: CC0 (public domain dedication)
+
+wukong.png
+  cropped from a Black Myth: Wukong promotional still, (c) Game Science.
+  Used for a non-commercial university class project.
