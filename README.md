@@ -38,6 +38,24 @@ make
 ./raylib_app.exe
 ```
 
+## Project 3: Lunar Lander!
+
+**Project folder: [`project-3-lunar-lander/`](project-3-lunar-lander/)**
+**Source file: [`project-3-lunar-lander/main.cpp`](project-3-lunar-lander/main.cpp)**
+
+Land a ship on a moving pad under low gravity. W thrusts up, A and D thrust sideways; every key only
+changes the ship's acceleration, so it drifts after you let go. Each thruster burns fuel (the cells in
+the top-left corner) and stops working at zero. Land softly on the green pad for Mission Accomplished;
+land too hard, hit the pad from the side or below, hit a rock or leave the screen for Mission Failed. The thruster flame is animated from a
+sprite sheet (extra credit). Q quits.
+
+To build and run, from inside `project-3-lunar-lander/`:
+
+```
+make
+./raylib_app.exe
+```
+
 ## Other folders
 
 | folder | what it is |
