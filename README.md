@@ -56,6 +56,31 @@ make
 ./raylib_app.exe
 ```
 
+## Project 4: Rise of the AI
+
+**Project folder: [`project-4-rise-of-the-ai/`](project-4-rise-of-the-ai/)**
+**Source file: [`project-4-rise-of-the-ai/main.cpp`](project-4-rise-of-the-ai/main.cpp)** (the scenes and classes are in
+[`project-4-rise-of-the-ai/CS3113/`](project-4-rise-of-the-ai/CS3113/))
+
+Alien Escape, a side-scrolling platformer. A menu scene, three levels that get longer and harder, and
+"You Win" / "You Lose" scenes. Three lives for the whole game: touching an enemy or falling into a pit
+costs one and restarts the level; reaching the flag clears it. Enemies use three kinds of AI: slimes
+pace back and forth (wanderer), snails crawl after you once you are close (follower) and flies glide
+after you through the air (lerper). Background music loops, with sound effects for jumping, getting
+hurt, clearing a level, winning and losing.
+
+- `ENTER` starts the game from the menu, and goes back to the menu from either ending (lives reset)
+- `A` / `D` walk, `W` jumps
+- `1` / `2` / `3` jump straight to level 1, 2 or 3 (debugging)
+- `Q` quits
+
+To build and run, from inside `project-4-rise-of-the-ai/`:
+
+```
+make
+./raylib_app.exe
+```
+
 ## Other folders
 
 | folder | what it is |
